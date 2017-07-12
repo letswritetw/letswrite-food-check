@@ -64,7 +64,7 @@
 						$('.wrap').append('<span>' + d[i].gsx$shops.$t + '</span>');
 					}
 
-					// 取亂數
+					// 取亂數 fn
 					var random = function() {
 						var max = d.length
 								min = 1;
@@ -73,8 +73,14 @@
 
 					// 加入動畫 class name
 					$('.btns a').on('click', function() {
+						
+						// 加入動畫 class name
 						$('.wrap > span').addClass('span-' + $('.wrap > span').length);
+						
+						// 亂數決定中選店家
 						$('.wrap > span').eq(0).text(d[random()].gsx$shops.$t);
+						
+						// 移除動畫
 						setTimeout(function(){
 							$('.wrap > span').removeAttr('class');
 						}, 4000);
