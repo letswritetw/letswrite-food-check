@@ -1,0 +1,440 @@
+*, *::before, *::after {
+  box-sizing: border-box; }
+
+.full-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: url("../img/bg-food.jpg") no-repeat center center;
+  background-size: cover; }
+
+.main-block {
+  margin-right: 25vw;
+  width: 40vw;
+  text-align: center; }
+
+.god {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.54);
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+  .god span {
+    position: relative;
+    display: block; }
+  .god > h1 > span {
+    display: block;
+    max-height: 73px;
+    overflow: hidden; }
+
+@-webkit-keyframes spin-1 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 1); } }
+
+@keyframes spin-1 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 1); } }
+
+.god .wrap > .span-1 {
+  -webkit-animation: spin-1 0.075s infinite linear;
+          animation: spin-1 0.075s infinite linear; }
+
+@-webkit-keyframes spin-2 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 2); } }
+
+@keyframes spin-2 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 2); } }
+
+.god .wrap > .span-2 {
+  -webkit-animation: spin-2 0.15s infinite linear;
+          animation: spin-2 0.15s infinite linear; }
+
+@-webkit-keyframes spin-3 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 3); } }
+
+@keyframes spin-3 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 3); } }
+
+.god .wrap > .span-3 {
+  -webkit-animation: spin-3 0.225s infinite linear;
+          animation: spin-3 0.225s infinite linear; }
+
+@-webkit-keyframes spin-4 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 4); } }
+
+@keyframes spin-4 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 4); } }
+
+.god .wrap > .span-4 {
+  -webkit-animation: spin-4 0.3s infinite linear;
+          animation: spin-4 0.3s infinite linear; }
+
+@-webkit-keyframes spin-5 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 5); } }
+
+@keyframes spin-5 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 5); } }
+
+.god .wrap > .span-5 {
+  -webkit-animation: spin-5 0.375s infinite linear;
+          animation: spin-5 0.375s infinite linear; }
+
+@-webkit-keyframes spin-6 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 6); } }
+
+@keyframes spin-6 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 6); } }
+
+.god .wrap > .span-6 {
+  -webkit-animation: spin-6 0.45s infinite linear;
+          animation: spin-6 0.45s infinite linear; }
+
+@-webkit-keyframes spin-7 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 7); } }
+
+@keyframes spin-7 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 7); } }
+
+.god .wrap > .span-7 {
+  -webkit-animation: spin-7 0.525s infinite linear;
+          animation: spin-7 0.525s infinite linear; }
+
+@-webkit-keyframes spin-8 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 8); } }
+
+@keyframes spin-8 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 8); } }
+
+.god .wrap > .span-8 {
+  -webkit-animation: spin-8 0.6s infinite linear;
+          animation: spin-8 0.6s infinite linear; }
+
+@-webkit-keyframes spin-9 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 9); } }
+
+@keyframes spin-9 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 9); } }
+
+.god .wrap > .span-9 {
+  -webkit-animation: spin-9 0.675s infinite linear;
+          animation: spin-9 0.675s infinite linear; }
+
+@-webkit-keyframes spin-10 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 10); } }
+
+@keyframes spin-10 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 10); } }
+
+.god .wrap > .span-10 {
+  -webkit-animation: spin-10 0.75s infinite linear;
+          animation: spin-10 0.75s infinite linear; }
+
+@-webkit-keyframes spin-11 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 11); } }
+
+@keyframes spin-11 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 11); } }
+
+.god .wrap > .span-11 {
+  -webkit-animation: spin-11 0.825s infinite linear;
+          animation: spin-11 0.825s infinite linear; }
+
+@-webkit-keyframes spin-12 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 12); } }
+
+@keyframes spin-12 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 12); } }
+
+.god .wrap > .span-12 {
+  -webkit-animation: spin-12 0.9s infinite linear;
+          animation: spin-12 0.9s infinite linear; }
+
+@-webkit-keyframes spin-13 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 13); } }
+
+@keyframes spin-13 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 13); } }
+
+.god .wrap > .span-13 {
+  -webkit-animation: spin-13 0.975s infinite linear;
+          animation: spin-13 0.975s infinite linear; }
+
+@-webkit-keyframes spin-14 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 14); } }
+
+@keyframes spin-14 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 14); } }
+
+.god .wrap > .span-14 {
+  -webkit-animation: spin-14 1.05s infinite linear;
+          animation: spin-14 1.05s infinite linear; }
+
+@-webkit-keyframes spin-15 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 15); } }
+
+@keyframes spin-15 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 15); } }
+
+.god .wrap > .span-15 {
+  -webkit-animation: spin-15 1.125s infinite linear;
+          animation: spin-15 1.125s infinite linear; }
+
+@-webkit-keyframes spin-16 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 16); } }
+
+@keyframes spin-16 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 16); } }
+
+.god .wrap > .span-16 {
+  -webkit-animation: spin-16 1.2s infinite linear;
+          animation: spin-16 1.2s infinite linear; }
+
+@-webkit-keyframes spin-17 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 17); } }
+
+@keyframes spin-17 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 17); } }
+
+.god .wrap > .span-17 {
+  -webkit-animation: spin-17 1.275s infinite linear;
+          animation: spin-17 1.275s infinite linear; }
+
+@-webkit-keyframes spin-18 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 18); } }
+
+@keyframes spin-18 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 18); } }
+
+.god .wrap > .span-18 {
+  -webkit-animation: spin-18 1.35s infinite linear;
+          animation: spin-18 1.35s infinite linear; }
+
+@-webkit-keyframes spin-19 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 19); } }
+
+@keyframes spin-19 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 19); } }
+
+.god .wrap > .span-19 {
+  -webkit-animation: spin-19 1.425s infinite linear;
+          animation: spin-19 1.425s infinite linear; }
+
+@-webkit-keyframes spin-20 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 20); } }
+
+@keyframes spin-20 {
+  from {
+    top: 0; }
+  to {
+    top: calc(-73px * 20); } }
+
+.god .wrap > .span-20 {
+  -webkit-animation: spin-20 1.5s infinite linear;
+          animation: spin-20 1.5s infinite linear; }
+
+.btns a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  max-width: 16vw;
+  border: 2px solid rgba(205, 5, 5, 0.27);
+  text-decoration: none;
+  color: rgba(205, 5, 5, 0.87); }
+  .btns a:hover {
+    color: #CD0505; }
+
+.btns a .line {
+  position: absolute;
+  background: #CD0505;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  transition: -webkit-transform .1s ease;
+  transition: transform .1s ease;
+  transition: transform .1s ease, -webkit-transform .1s ease; }
+  .btns a .line.-h {
+    width: 100%;
+    height: 2px; }
+  .btns a .line.-v {
+    width: 2px;
+    height: 100%; }
+  .btns a .line.top {
+    top: -2px;
+    left: 0;
+    -webkit-transform-origin: left;
+            transform-origin: left; }
+  .btns a .line.right {
+    top: 0;
+    right: -2px;
+    -webkit-transform-origin: top;
+            transform-origin: top; }
+  .btns a .line.bottom {
+    bottom: -2px;
+    right: 0;
+    -webkit-transform-origin: right;
+            transform-origin: right; }
+  .btns a .line.left {
+    bottom: 0;
+    left: -2px;
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom; }
+
+.btns a .line.top {
+  transition-delay: .3s; }
+
+.btns a .line.right {
+  transition-delay: .2s; }
+
+.btns a .line.bottom {
+  transition-delay: .1s; }
+
+.btns a .line.left {
+  transition-delay: 0; }
+
+.btns a:hover .line {
+  -webkit-transform: scale(1);
+          transform: scale(1); }
+  .btns a:hover .line.top {
+    transition-delay: 0s; }
+  .btns a:hover .line.right {
+    transition-delay: .1s; }
+  .btns a:hover .line.bottom {
+    transition-delay: .2s; }
+  .btns a:hover .line.left {
+    transition-delay: .3s; }
+
+h1 {
+  margin: 0;
+  font-size: 4rem; }

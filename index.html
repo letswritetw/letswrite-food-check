@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>午餐吃什麼呢？</title>
+
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css'/>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+	<!--  背景圖  -->
+	<main class="full-block">
+		
+		<!--  主要內容  -->
+		<div class="main-block">
+			
+			<!--  顯示區塊  -->
+			<div class="god">
+				<h1>
+					<span class="wrap">
+						<span>什麼呢？</span>
+					</span>
+				</h1>
+			</div>
+
+			<!--  按鈕  -->
+			<div class="btns">
+				<a href="#">
+					<span class="line top -h"></span>
+					<span class="line right -v"></span>
+					<span class="line bottom -h"></span>
+					<span class="line left -v"></span>
+					轉動命運輪盤
+			</a>
+			</div>
+		</div>
+	</main>
+	
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+		$(function() {
+			
+			$.ajax({
+				url: 'https://spreadsheets.google.com/feeds/list/11wLZL0bNoD7ZQwfN3Tkx41YB6IgLbv4ftsrxywA0114/1/public/values?alt=json',
+				success: function(data) {
+					// 倒入店家
+					var d = data.feed.entry;
+					for(var i = 0, len = d.length; i < len; i++) {
+						$('.wrap').append('<span>' + d[i].gsx$shops.$t + '</span>');
+					}
+
+					// 取亂數
+					var random = function() {
+						var max = d.length
+								min = 1;
+						return Math.floor(Math.random() * (max - min + 1)) + min;
+					};
+
+					// 加入動畫 class name
+					$('.btns a').on('click', function() {
+						$('.wrap > span').addClass('span-' + $('.wrap > span').length);
+						$('.wrap > span').eq(0).text(d[random()].gsx$shops.$t);
+						setTimeout(function(){
+							$('.wrap > span').removeAttr('class');
+						}, 4000);
+					});
+					
+				}
+			});
+
+		});
+	</script>
+</body>
+</html>

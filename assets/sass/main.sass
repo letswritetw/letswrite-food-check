@@ -1,0 +1,117 @@
+*, *::before, *::after
+	box-sizing: border-box
+
+.full-block
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 100vw
+	height: 100vh
+	background: url('../img/bg-food.jpg') no-repeat center center
+	background-size: cover
+
+.main-block
+	margin-right: 25vw
+	width: 40vw
+	// background: #FFF
+	text-align: center
+
+.god
+	margin-bottom: 3rem
+	padding: 2rem
+	background: rgba(#FFF, .54)
+	border-radius: 1rem
+	box-shadow: 0 2px 10px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.26)
+	span
+		position: relative
+		display: block
+	> h1 > span
+		display: block
+		max-height: 73px
+		overflow: hidden
+
+
+@for $i from 1 through 20
+	$t: .075s * $i
+	@keyframes spin-#{$i}
+		from
+			top: 0
+		to
+			top: calc(-73px * #{$i})
+	.god .wrap > .span-#{$i}
+		animation: spin-#{$i} $t infinite linear
+
+.btns
+	a
+		display: flex
+		align-items: center
+		justify-content: center
+		position: relative
+		z-index: 1
+		margin: 0 auto
+		padding: 1rem 2rem
+		max-width: 16vw
+		border: 2px solid rgba(#CD0505, .27)
+		text-decoration: none
+		color: rgba(#CD0505, .87)
+		&:hover
+			color: #CD0505
+
+// 線
+.btns a
+  .line
+    position: absolute
+    background: #CD0505
+    transform: scale(0)
+    transition: transform .1s ease
+    // 水平線
+    &.-h
+      width: 100%
+      height: 2px
+    // 垂直線
+    &.-v
+      width: 2px
+      height: 100%
+    &.top
+      top: -2px
+      left: 0
+      transform-origin: left
+    &.right
+      top: 0
+      right: -2px
+      transform-origin: top
+    &.bottom
+      bottom: -2px
+      right: 0
+      transform-origin: right
+    &.left
+      bottom: 0
+      left: -2px
+      transform-origin: bottom
+
+// 線的效果
+.btns a
+  .line
+    &.top
+      transition-delay: .3s
+    &.right
+      transition-delay: .2s
+    &.bottom
+      transition-delay: .1s
+    &.left
+      transition-delay: 0
+.btns a:hover
+  .line
+    transform: scale(1)
+    &.top
+      transition-delay: 0s
+    &.right
+      transition-delay: .1s
+    &.bottom
+      transition-delay: .2s
+    &.left
+      transition-delay: .3s
+
+h1
+	margin: 0
+	font-size: 4rem
