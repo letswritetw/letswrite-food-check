@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1.0; user-scalable=0;">
 
-	<title>午餐吃什麼呢？</title>
+	<title>中獎者是？</title>
 
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css'/>
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
@@ -33,14 +33,22 @@
 			<div class="god">
 				<h1>
 					<span class="wrap">
-						<span>什麼呢？</span>
+						<span>中獎者是？</span>
 					</span>
 				</h1>
 			</div>
 
 			<!--  按鈕  -->
 			<div class="btns">
-				<a href="#">
+
+				<!--  素食  -->
+				<!-- <div class="check">
+					<input id="vage" type="checkbox">
+					<label for="vage"></label>
+				</div> -->
+
+				<!--  start  -->
+				<a class="btn-circle" href="#">
 					<span class="line top -h"></span>
 					<span class="line right -v"></span>
 					<span class="line bottom -h"></span>
@@ -59,31 +67,35 @@
 				url: 'https://spreadsheets.google.com/feeds/list/11wLZL0bNoD7ZQwfN3Tkx41YB6IgLbv4ftsrxywA0114/1/public/values?alt=json',
 				success: function(data) {
 					// 倒入店家
-					var d = data.feed.entry;
-					for(var i = 0, len = d.length; i < len; i++) {
+					var d = data.feed.entry,
+							len =  d.length;
+					for(var i = 0; i < len; i++) {
 						$('.wrap').append('<span>' + d[i].gsx$shops.$t + '</span>');
 					}
 
 					// 取亂數 fn
 					var random = function() {
-						var max = d.length
-								min = 1;
+						var max = len,
+								min = 0;
 						return Math.floor(Math.random() * (max - min + 1)) + min;
 					};
+					var txt;
 
-					// 加入動畫 class name
+					// 點擊按鈕後執行
 					$('.btns a').on('click', function() {
 						
+						txt = d[random()].gsx$shops.$t;
+
 						// 加入動畫 class name
-						$('.wrap > span').addClass('span-' + $('.wrap > span').length);
+						$('.wrap > span').addClass('span-' + (len - 1));
 						
 						// 亂數決定中選店家
-						$('.wrap > span').eq(0).text(d[random()].gsx$shops.$t);
+						$('.wrap > span').eq(0).text(txt);
 						
 						// 移除動畫
 						setTimeout(function(){
 							$('.wrap > span').removeAttr('class');
-						}, 4000);
+						}, 1000);
 					});
 					
 				}

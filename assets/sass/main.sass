@@ -7,28 +7,28 @@
 	justify-content: center
 	width: 100vw
 	height: 100vh
-	background: url('../img/bg-food.jpg') no-repeat center center
-	background-size: cover
+	background: #FFF url('../img/bg-food.jpg') no-repeat center right
+	background-size: contain
 
 .main-block
 	margin-right: 25vw
 	width: 40vw
-	// background: #FFF
 	text-align: center
 
 .god
-	margin-bottom: 3rem
-	padding: 2rem
-	background: rgba(#FFF, .54)
-	border-radius: 1rem
-	box-shadow: 0 2px 10px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.26)
-	span
-		position: relative
-		display: block
-	> h1 > span
-		display: block
-		max-height: 73px
-		overflow: hidden
+  margin-bottom: 3rem
+  padding: 2rem
+  background: rgba(#FFF, .54)
+  border: 1px solid rgba(41, 44, 55, 0.27)
+  border-radius: .5rem
+  span
+    position: relative
+    display: block
+  > h1 > span
+    display: block
+    max-height: 73px
+    overflow: hidden
+    color: #333844
 
 
 @for $i from 1 through 20
@@ -41,24 +41,23 @@
 	.god .wrap > .span-#{$i}
 		animation: spin-#{$i} $t infinite linear
 
-.btns
-	a
-		display: flex
-		align-items: center
-		justify-content: center
-		position: relative
-		z-index: 1
-		margin: 0 auto
-		padding: 1rem 2rem
-		max-width: 16vw
-		border: 2px solid rgba(#CD0505, .27)
-		text-decoration: none
-		color: rgba(#CD0505, .87)
-		&:hover
-			color: #CD0505
+.btn-circle
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+  z-index: 1
+  margin: 0 auto
+  padding: 1rem 2rem
+  max-width: 10vw
+  border: 1px solid rgba(41, 44, 55, 0.27)
+  text-decoration: none
+  color: rgba(41, 44, 55, 0.54)
+  &:hover
+    color: #CD0505
 
 // 線
-.btns a
+.btn-circle
   .line
     position: absolute
     background: #CD0505
@@ -90,7 +89,7 @@
       transform-origin: bottom
 
 // 線的效果
-.btns a
+.btn-circle
   .line
     &.top
       transition-delay: .3s
@@ -100,7 +99,7 @@
       transition-delay: .1s
     &.left
       transition-delay: 0
-.btns a:hover
+.btn-circle:hover
   .line
     transform: scale(1)
     &.top
@@ -115,3 +114,9 @@
 h1
 	margin: 0
 	font-size: 4rem
+
+
+
+// toggle button
+// box-shadow: 0 2px 1px 0 rgba(255, 255, 255, 0.5),inset 0 1px 3px 0 rgba(0, 0, 0, 0.2)
+// box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2),0px 4px 23px 0 rgba(0, 0, 0, 0.08),-2px 4px 4px 0 rgba(0, 0, 0, 0.1)
