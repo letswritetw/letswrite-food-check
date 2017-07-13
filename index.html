@@ -83,6 +83,10 @@
 			});
 			var infoWindow = new google.maps.InfoWindow({map: map});
 
+			navigator.geolocation.watchPosition(function(position) {
+				console.log('watch: ' + position);
+			});
+
 			// Try HTML5 geolocation.
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function(position) {
@@ -90,22 +94,19 @@
 						lat: position.coords.latitude,
 						lng: position.coords.longitude
 					};
+					console.log('navigator: ' + navigator.geolocation);
+					console.log('經緯度: ' + pos);
 
 					infoWindow.setPosition(pos);
-					infoWindow.setContent('Location found.');
+					infoWindow.setContent('你目前所在的位置。');
 					map.setCenter(pos);
 				}, function() {
 					handleLocationError(true, infoWindow, map.getCenter());
 				});
 			} else {
 				// Browser doesn't support Geolocation
-				console.log('不支援');
 				handleLocationError(false, infoWindow, map.getCenter());	
 			}
-			marker = new google.maps.Marker({
-				position: site,
-				map: map
-			});
 		}
 
 		function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -154,10 +155,15 @@
 							$('.wrap > span').removeAttr('class');
 
 							// 改變地圖位置
+							site = {lat: 25.058222, lng: 121.534266};
 							map = new google.maps.Map(document.getElementById('map'), {
-								center: {lat: 25.0598266, lng: 121.5292404},
+								center: site,
 								zoom: 18
-							});							
+							});
+							marker = new google.maps.Marker({
+								position: site,
+								map: map
+							});	
 						}, 1000);
 					});
 					
