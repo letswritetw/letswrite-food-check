@@ -38,9 +38,6 @@
 				</h1>
 			</div>
 
-			<!--  地圖  -->
-			<div id="map" class="map"></div>
-
 			<!--  按鈕  -->
 			<div class="btns">
 
@@ -61,8 +58,11 @@
 					<span class="line bottom -h"></span>
 					<span class="line left -v"></span>
 					轉動命運輪盤
-			</a>
+				</a>
 			</div>
+
+			<!--  地圖  -->
+			<div id="map" class="map"></div>
 		</div>
 	</main>
 	
@@ -104,14 +104,7 @@
 						setTimeout(function(){
 							$('.wrap > span').removeAttr('class');
 
-							// 加人地圖
-							var map;
-							function initMap() {
-								map = new google.maps.Map(document.getElementById('map'), {
-									center: {lat: -34.397, lng: 150.644},
-									zoom: 8
-								});
-							}
+							
 						}, 1000);
 					});
 					
@@ -120,7 +113,43 @@
 
 		});
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM&callback=initMap"
-    async defer></script>
+<script>
+	// 加入地圖
+	var map;
+	function initMap() {
+		var map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: -34.397, lng: 150.644},
+			zoom: 1
+		});
+		var infoWindow = new google.maps.InfoWindow({map: map});
+
+		// Try HTML5 geolocation.
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var pos = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				};
+
+				infoWindow.setPosition(pos);
+				infoWindow.setContent('Location found.');
+				map.setCenter(pos);
+			}, function() {
+				handleLocationError(true, infoWindow, map.getCenter());
+			});
+		} else {
+			// Browser doesn't support Geolocation
+			handleLocationError(false, infoWindow, map.getCenter());
+		}
+	}
+
+	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+		infoWindow.setPosition(pos);
+		infoWindow.setContent(browserHasGeolocation ?
+			'Error: The Geolocation service failed.' :
+			'Error: Your browser doesn\'t support geolocation.');
+	}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM&callback=initMap" async defer></script>
 </body>
 </html>
