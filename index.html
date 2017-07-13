@@ -38,14 +38,21 @@
 				</h1>
 			</div>
 
+			<!--  地圖  -->
+			<div class="map"></div>
+			
 			<!--  按鈕  -->
 			<div class="btns">
 
+				<p class="vegetarian">Vegetarian？</p>
+
 				<!--  素食  -->
-				<!-- <div class="check">
-					<input id="vage" type="checkbox">
-					<label for="vage"></label>
-				</div> -->
+				 <div class="check">
+					<label class="toggle">
+						<input type="checkbox" checked>
+						<span class="button round"></span>
+					</label>
+				</div> 
 
 				<!--  start  -->
 				<a class="btn-circle" href="#">
@@ -82,7 +89,8 @@
 					var txt;
 
 					// 點擊按鈕後執行
-					$('.btns a').on('click', function() {
+					$('.btns a').on('click', function(e) {
+						e.preventDefault();
 						
 						txt = d[random()].gsx$shops.$t;
 

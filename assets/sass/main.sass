@@ -41,15 +41,25 @@
 	.god .wrap > .span-#{$i}
 		animation: spin-#{$i} $t infinite linear
 
+
+.btns
+  display: flex
+  align-items: center
+
+.vegetarian
+  padding-right: 2px
+  color: #689F38
+
+
 .btn-circle
   display: flex
   align-items: center
   justify-content: center
   position: relative
   z-index: 1
-  margin: 0 auto
+  margin-left: 2rem
   padding: 1rem 2rem
-  max-width: 10vw
+  width: 100%
   border: 1px solid rgba(41, 44, 55, 0.27)
   text-decoration: none
   color: rgba(41, 44, 55, 0.54)
@@ -120,3 +130,64 @@ h1
 // toggle button
 // box-shadow: 0 2px 1px 0 rgba(255, 255, 255, 0.5),inset 0 1px 3px 0 rgba(0, 0, 0, 0.2)
 // box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2),0px 4px 23px 0 rgba(0, 0, 0, 0.08),-2px 4px 4px 0 rgba(0, 0, 0, 0.1)
+
+.toggle
+  position: relative
+  display: inline-block
+  width: 100px
+  height: 54px
+  input
+    display: none
+
+.button
+  position: absolute
+  cursor: pointer
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: #ccc
+  transition: .4s
+  box-shadow: 0 2px 1px 0 rgba(255, 255, 255, 0.5),inset 0 1px 3px 0 rgba(0, 0, 0, 0.2)
+  &:before
+    position: absolute
+    content: ""
+    height: 46px
+    width: 46px
+    left: 4px
+    bottom: 4px
+    background-color: white
+    transition: .4s
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2),0px 4px 23px 0 rgba(0, 0, 0, 0.08),-2px 4px 4px 0 rgba(0, 0, 0, 0.1)
+
+input
+  &:checked + .button
+    background-color: #8BC34A
+  &:focus + .button
+    box-shadow: 0 0 1px #2196F3
+  &:checked + .button:before,
+  &:checked + .button:after
+    transform: translateX(46px)
+  &:checked + .button:after
+    color: #689F38
+
+/* Rounded sliders
+.button.round
+  border-radius: 34px
+  // color: #8BC34A
+  &:before
+    border-radius: 50%
+  &:after
+    font-family: 'FontAwesome'
+    content: '\f18c'
+    position: absolute
+    left: 4px
+    bottom: 4px
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 46px
+    width: 46px
+    font-size: 1.5rem
+    color: #ccc
+    transition: .4s
