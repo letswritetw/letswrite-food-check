@@ -69,11 +69,17 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script>
 		// 加入地圖
-		var map;
+		var map, marker;
+		var site;
+		site = {lat: 25.058222, lng: 121.534266};
 		function initMap() {
 			map = new google.maps.Map(document.getElementById('map'), {
-				center: {lat: -34.397, lng: 150.644},
-				zoom: 15
+				center: site,
+				zoom: 18
+			});
+			marker = new google.maps.Marker({
+				position: site,
+				map: map
 			});
 			var infoWindow = new google.maps.InfoWindow({map: map});
 
@@ -93,15 +99,20 @@
 				});
 			} else {
 				// Browser doesn't support Geolocation
-				handleLocationError(false, infoWindow, map.getCenter());
+				console.log('不支援');
+				handleLocationError(false, infoWindow, map.getCenter());	
 			}
+			marker = new google.maps.Marker({
+				position: site,
+				map: map
+			});
 		}
 
 		function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 			infoWindow.setPosition(pos);
 			infoWindow.setContent(browserHasGeolocation ?
-				'Error: The Geolocation service failed.' :
-				'Error: Your browser doesn\'t support geolocation.');
+				'伺服器錯誤，無法偵測所在地。' :
+				'瀏覽器不支援');
 		}
 
 
@@ -142,9 +153,10 @@
 						setTimeout(function(){
 							$('.wrap > span').removeAttr('class');
 
+							// 改變地圖位置
 							map = new google.maps.Map(document.getElementById('map'), {
 								center: {lat: 25.0598266, lng: 121.5292404},
-								zoom: 15
+								zoom: 18
 							});							
 						}, 1000);
 					});
