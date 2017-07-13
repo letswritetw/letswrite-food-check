@@ -39,8 +39,8 @@
 			</div>
 
 			<!--  地圖  -->
-			<div class="map"></div>
-			
+			<div id="map" class="map"></div>
+
 			<!--  按鈕  -->
 			<div class="btns">
 
@@ -103,6 +103,15 @@
 						// 移除動畫
 						setTimeout(function(){
 							$('.wrap > span').removeAttr('class');
+
+							// 加人地圖
+							var map;
+							function initMap() {
+								map = new google.maps.Map(document.getElementById('map'), {
+									center: {lat: -34.397, lng: 150.644},
+									zoom: 8
+								});
+							}
 						}, 1000);
 					});
 					
@@ -110,6 +119,8 @@
 			});
 
 		});
-	</script>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM&callback=initMap"
+    async defer></script>
 </body>
 </html>
