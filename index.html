@@ -68,6 +68,44 @@
 	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script>
+		// 加入地圖
+		var map;
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: -34.397, lng: 150.644},
+				zoom: 15
+			});
+			var infoWindow = new google.maps.InfoWindow({map: map});
+
+			// Try HTML5 geolocation.
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var pos = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+
+					infoWindow.setPosition(pos);
+					infoWindow.setContent('Location found.');
+					map.setCenter(pos);
+				}, function() {
+					handleLocationError(true, infoWindow, map.getCenter());
+				});
+			} else {
+				// Browser doesn't support Geolocation
+				handleLocationError(false, infoWindow, map.getCenter());
+			}
+		}
+
+		function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+			infoWindow.setPosition(pos);
+			infoWindow.setContent(browserHasGeolocation ?
+				'Error: The Geolocation service failed.' :
+				'Error: Your browser doesn\'t support geolocation.');
+		}
+
+
+
 		$(function() {
 			
 			$.ajax({
@@ -104,7 +142,10 @@
 						setTimeout(function(){
 							$('.wrap > span').removeAttr('class');
 
-							
+							map = new google.maps.Map(document.getElementById('map'), {
+								center: {lat: 25.0598266, lng: 121.5292404},
+								zoom: 15
+							});							
 						}, 1000);
 					});
 					
@@ -112,44 +153,7 @@
 			});
 
 		});
-</script>
-<script>
-	// 加入地圖
-	var map;
-	function initMap() {
-		var map = new google.maps.Map(document.getElementById('map'), {
-			center: {lat: -34.397, lng: 150.644},
-			zoom: 1
-		});
-		var infoWindow = new google.maps.InfoWindow({map: map});
-
-		// Try HTML5 geolocation.
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function(position) {
-				var pos = {
-					lat: position.coords.latitude,
-					lng: position.coords.longitude
-				};
-
-				infoWindow.setPosition(pos);
-				infoWindow.setContent('Location found.');
-				map.setCenter(pos);
-			}, function() {
-				handleLocationError(true, infoWindow, map.getCenter());
-			});
-		} else {
-			// Browser doesn't support Geolocation
-			handleLocationError(false, infoWindow, map.getCenter());
-		}
-	}
-
-	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-		infoWindow.setPosition(pos);
-		infoWindow.setContent(browserHasGeolocation ?
-			'Error: The Geolocation service failed.' :
-			'Error: Your browser doesn\'t support geolocation.');
-	}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM&callback=initMap" async defer></script>
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM&callback=initMap" async defer></script>
 </body>
 </html>
