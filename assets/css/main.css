@@ -549,6 +549,29 @@ input:checked + .button:after {
     visibility: hidden;
     opacity: 0; }
 
+.github {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100px;
+  height: 100px; }
+  .github::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 0 0 100px;
+    border-color: transparent transparent transparent #6e5494; }
+  .github .fa {
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    font-size: 3rem;
+    color: #FFF; }
+
 .search-only {
   position: absolute;
   width: 1px;

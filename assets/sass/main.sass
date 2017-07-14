@@ -215,6 +215,30 @@ input
     opacity: 0
 
 
+// github
+.github
+  position: fixed
+  left: 0
+  bottom: 0
+  display: flex
+  width: 100px
+  height: 100px
+  &::before
+    content: ''
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 100px 0 0 100px
+    border-color: transparent transparent transparent #6e5494
+  .fa
+    position: absolute
+    left: 10px
+    bottom: 5px
+    font-size: 3rem
+    color: #FFF
+
+
+
 // seo
 .search-only
   position: absolute
