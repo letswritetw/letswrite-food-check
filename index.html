@@ -62,62 +62,17 @@
 			</div>
 
 			<!--  地圖  -->
-			<div id="map" class="map"></div>
+			<div id="map" class="map">
+				<iframe
+					frameborder="0" style="border:0"
+					src="" allowfullscreen>
+				</iframe>
+			</div>
 		</div>
 	</main>
 	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script>
-		// 加入地圖
-		var map, marker;
-		var site;
-		site = {lat: 25.058222, lng: 121.534266};
-		function initMap() {
-			map = new google.maps.Map(document.getElementById('map'), {
-				center: site,
-				zoom: 18
-			});
-			marker = new google.maps.Marker({
-				position: site,
-				map: map
-			});
-			var infoWindow = new google.maps.InfoWindow({map: map});
-
-			navigator.geolocation.watchPosition(function(position) {
-				console.log('watch: ' + position);
-			});
-
-			// Try HTML5 geolocation.
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function(position) {
-					var pos = {
-						lat: position.coords.latitude,
-						lng: position.coords.longitude
-					};
-					console.log('navigator: ' + navigator.geolocation);
-					console.log('經緯度: ' + pos);
-
-					infoWindow.setPosition(pos);
-					infoWindow.setContent('你目前所在的位置。');
-					map.setCenter(pos);
-				}, function() {
-					handleLocationError(true, infoWindow, map.getCenter());
-				});
-			} else {
-				// Browser doesn't support Geolocation
-				handleLocationError(false, infoWindow, map.getCenter());	
-			}
-		}
-
-		function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-			infoWindow.setPosition(pos);
-			infoWindow.setContent(browserHasGeolocation ?
-				'伺服器錯誤，無法偵測所在地。' :
-				'瀏覽器不支援');
-		}
-
-
-
 		$(function() {
 			
 			$.ajax({
@@ -136,35 +91,36 @@
 								min = 0;
 						return Math.floor(Math.random() * (max - min + 1)) + min;
 					};
-					var txt;
+					var txt_o, txt_f;
 
 					// 點擊按鈕後執行
 					$('.btns a').on('click', function(e) {
 						e.preventDefault();
+
+						// 地圖先消失
+						$('#map iframe').addClass('hidden');
 						
-						txt = d[random()].gsx$shops.$t;
+						txt_o = d[random()].gsx$shops.$t;
+						txt_f = txt_o.replace(' ', '+');
 
 						// 加入動畫 class name
 						$('.wrap > span').addClass('span-' + (len - 1));
 						
 						// 亂數決定中選店家
-						$('.wrap > span').eq(0).text(txt);
+						$('.wrap > span').eq(0).text(txt_o);
 						
 						// 移除動畫
 						setTimeout(function(){
 							$('.wrap > span').removeAttr('class');
 
+							$('#map iframe').attr('src', 'https://www.google.com/maps/embed/v1/place?key=AIzaSyB9ZobjoX7872IUdR4RAXruFhEBH_om1Pw&q=' + txt_f);
+
 							// 改變地圖位置
-							site = {lat: 25.058222, lng: 121.534266};
-							map = new google.maps.Map(document.getElementById('map'), {
-								center: site,
-								zoom: 18
-							});
-							marker = new google.maps.Marker({
-								position: site,
-								map: map
-							});	
 						}, 1000);
+
+						$('#map iframe').on('load', function(){
+							$('#map iframe').removeClass('hidden');
+						});
 					});
 					
 				}
