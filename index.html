@@ -46,18 +46,17 @@
 				<!--  素食  -->
 				 <div class="check">
 					<label class="toggle">
-						<input type="checkbox" checked>
+						<input id="vage" type="checkbox" checked>
 						<span class="button round"></span>
 					</label>
 				</div> 
 
 				<!--  start  -->
-				<a class="btn-circle" href="#">
+				<a class="btn-start" href="#">
 					<span class="line top -h"></span>
 					<span class="line right -v"></span>
 					<span class="line bottom -h"></span>
 					<span class="line left -v"></span>
-					轉動命運輪盤
 				</a>
 			</div>
 
@@ -78,49 +77,86 @@
 			$.ajax({
 				url: 'https://spreadsheets.google.com/feeds/list/11wLZL0bNoD7ZQwfN3Tkx41YB6IgLbv4ftsrxywA0114/1/public/values?alt=json',
 				success: function(data) {
+					var vages = []; // 素
+					var meats = []; // 葷
+
 					// 倒入店家
 					var d = data.feed.entry,
 							len =  d.length;
+					
+					// 分葷、素，塞入陣列
 					for(var i = 0; i < len; i++) {
-						$('.wrap').append('<span>' + d[i].gsx$shops.$t + '</span>');
+						if(d[i].gsx$vage.$t === '是') {
+							vages.push(d[i].gsx$shops.$t);
+						}
+						else {
+							meats.push(d[i].gsx$shops.$t);
+						}
 					}
-
-					// 取亂數 fn
-					var random = function() {
-						var max = len,
-								min = 0;
-						return Math.floor(Math.random() * (max - min + 1)) + min;
-					};
-					var txt_o, txt_f;
+					
 
 					// 點擊按鈕後執行
-					$('.btns a').on('click', function(e) {
+					var r; // 亂數
+					var max, min;
+					var txt; // 結果
+					
+					$('.btn-start').on('click', function(e) {
 						e.preventDefault();
+
+						// 選店家 fn
+						var chooseShop = function(toggle) {
+
+							// 取亂數 fn
+							r = function() {
+								max = toggle.length - 1;
+								min = 0;
+								return Math.floor(Math.random() * (max - min + 1)) + min;
+							};
+
+							txt = toggle[r()];
+
+							// 清空、插入選項
+							$('.wrap').children().remove();
+							for(var i = 0; i < toggle.length; i++) {
+								$('.wrap').append('<span>' + toggle[i] + '</span>');
+							}
+
+							// 禁止按鈕再被點擊
+							$(e.target).addClass('not-allow');
+
+
+							// 加入動畫 class name
+							$('.wrap > span').addClass('span-' + (toggle.length - 1));
+
+							// 亂數決定中選店家
+							$('.wrap > span').eq(0).text(txt);
+							
+							// 移除動畫
+							setTimeout(function(){
+								$('.wrap > span').removeAttr('class');
+
+								// 改變地圖位置
+								$('#map iframe').attr('src', 'https://www.google.com/maps/embed/v1/place?key=AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM&q=' + txt);
+
+							}, 1000);
+
+							$('#map iframe').on('load', function(){
+								$('#map iframe').removeClass('hidden');
+								$(e.target).removeClass('not-allow');
+							});
+						};
 
 						// 地圖先消失
 						$('#map iframe').addClass('hidden');
-						
-						txt_o = d[random()].gsx$shops.$t;
-						txt_f = txt_o.replace(' ', '+');
 
-						// 加入動畫 class name
-						$('.wrap > span').addClass('span-' + (len - 1));
-						
-						// 亂數決定中選店家
-						$('.wrap > span').eq(0).text(txt_o);
-						
-						// 移除動畫
-						setTimeout(function(){
-							$('.wrap > span').removeAttr('class');
+						// 是素食
+						if($('#vage').prop('checked') === true) {
+							chooseShop(vages);
+						}
+						else {
+							chooseShop(meats);
+						}
 
-							$('#map iframe').attr('src', 'https://www.google.com/maps/embed/v1/place?key=AIzaSyB9ZobjoX7872IUdR4RAXruFhEBH_om1Pw&q=' + txt_f);
-
-							// 改變地圖位置
-						}, 1000);
-
-						$('#map iframe').on('load', function(){
-							$('#map iframe').removeClass('hidden');
-						});
 					});
 					
 				}

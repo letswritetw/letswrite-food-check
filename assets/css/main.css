@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *::before, *::after {
   box-sizing: border-box; }
 
@@ -369,7 +370,7 @@
   padding-right: 2px;
   color: #689F38; }
 
-.btn-circle {
+.btn-start {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -387,10 +388,22 @@
   border: 1px solid rgba(41, 44, 55, 0.27);
   text-decoration: none;
   color: rgba(41, 44, 55, 0.54); }
-  .btn-circle:hover {
+  .btn-start::after {
+    content: '轉動命運輪盤';
+    line-height: 1; }
+  .btn-start:hover {
     color: #CD0505; }
+  .btn-start.not-allow {
+    pointer-events: none; }
+    .btn-start.not-allow::after {
+      font-family: 'FontAwesome';
+      content: '\f110';
+      -webkit-animation: fa-spin 2s infinite linear;
+              animation: fa-spin 2s infinite linear; }
+    .btn-start.not-allow:hover {
+      color: #CCC; }
 
-.btn-circle .line {
+.btn-start .line, .btn-start.not-allow .line {
   position: absolute;
   background: #CD0505;
   -webkit-transform: scale(0);
@@ -398,55 +411,58 @@
   transition: -webkit-transform .1s ease;
   transition: transform .1s ease;
   transition: transform .1s ease, -webkit-transform .1s ease; }
-  .btn-circle .line.-h {
+  .btn-start .line.-h, .btn-start.not-allow .line.-h {
     width: 100%;
     height: 2px; }
-  .btn-circle .line.-v {
+  .btn-start .line.-v, .btn-start.not-allow .line.-v {
     width: 2px;
     height: 100%; }
-  .btn-circle .line.top {
+  .btn-start .line.top, .btn-start.not-allow .line.top {
     top: -2px;
     left: 0;
     -webkit-transform-origin: left;
             transform-origin: left; }
-  .btn-circle .line.right {
+  .btn-start .line.right, .btn-start.not-allow .line.right {
     top: 0;
     right: -2px;
     -webkit-transform-origin: top;
             transform-origin: top; }
-  .btn-circle .line.bottom {
+  .btn-start .line.bottom, .btn-start.not-allow .line.bottom {
     bottom: -2px;
     right: 0;
     -webkit-transform-origin: right;
             transform-origin: right; }
-  .btn-circle .line.left {
+  .btn-start .line.left, .btn-start.not-allow .line.left {
     bottom: 0;
     left: -2px;
     -webkit-transform-origin: bottom;
             transform-origin: bottom; }
 
-.btn-circle .line.top {
+.btn-start.not-allow .line {
+  background: #FFF; }
+
+.btn-start .line.top, .btn-start.not-allow .line.top {
   transition-delay: .3s; }
 
-.btn-circle .line.right {
+.btn-start .line.right, .btn-start.not-allow .line.right {
   transition-delay: .2s; }
 
-.btn-circle .line.bottom {
+.btn-start .line.bottom, .btn-start.not-allow .line.bottom {
   transition-delay: .1s; }
 
-.btn-circle .line.left {
+.btn-start .line.left, .btn-start.not-allow .line.left {
   transition-delay: 0; }
 
-.btn-circle:hover .line {
+.btn-start:hover .line, .btn-start.not-allow:hover .line {
   -webkit-transform: scale(1);
           transform: scale(1); }
-  .btn-circle:hover .line.top {
+  .btn-start:hover .line.top, .btn-start.not-allow:hover .line.top {
     transition-delay: 0s; }
-  .btn-circle:hover .line.right {
+  .btn-start:hover .line.right, .btn-start.not-allow:hover .line.right {
     transition-delay: .1s; }
-  .btn-circle:hover .line.bottom {
+  .btn-start:hover .line.bottom, .btn-start.not-allow:hover .line.bottom {
     transition-delay: .2s; }
-  .btn-circle:hover .line.left {
+  .btn-start:hover .line.left, .btn-start.not-allow:hover .line.left {
     transition-delay: .3s; }
 
 h1 {

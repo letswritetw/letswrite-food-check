@@ -52,7 +52,7 @@
   color: #689F38
 
 
-.btn-circle
+.btn-start
   display: flex
   align-items: center
   justify-content: center
@@ -64,11 +64,22 @@
   border: 1px solid rgba(41, 44, 55, 0.27)
   text-decoration: none
   color: rgba(41, 44, 55, 0.54)
+  &::after
+    content: '轉動命運輪盤'
+    line-height: 1
   &:hover
     color: #CD0505
+  &.not-allow
+    pointer-events: none
+    &::after
+      font-family: 'FontAwesome'
+      content: '\f110'
+      animation: fa-spin 2s infinite linear
+    &:hover
+      color: #CCC
 
 // 線
-.btn-circle
+.btn-start, .btn-start.not-allow
   .line
     position: absolute
     background: #CD0505
@@ -99,8 +110,11 @@
       left: -2px
       transform-origin: bottom
 
+.btn-start.not-allow .line
+  background: #FFF
+
 // 線的效果
-.btn-circle
+.btn-start, .btn-start.not-allow
   .line
     &.top
       transition-delay: .3s
@@ -110,7 +124,7 @@
       transition-delay: .1s
     &.left
       transition-delay: 0
-.btn-circle:hover
+.btn-start:hover, .btn-start.not-allow:hover
   .line
     transform: scale(1)
     &.top
@@ -125,12 +139,6 @@
 h1
 	margin: 0
 	font-size: 4rem
-
-
-
-// toggle button
-// box-shadow: 0 2px 1px 0 rgba(255, 255, 255, 0.5),inset 0 1px 3px 0 rgba(0, 0, 0, 0.2)
-// box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2),0px 4px 23px 0 rgba(0, 0, 0, 0.08),-2px 4px 4px 0 rgba(0, 0, 0, 0.1)
 
 .toggle
   position: relative
