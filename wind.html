@@ -6,14 +6,14 @@
 	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1.0; user-scalable=0;">
 
 	<title>午餐吃什麼 - by Sean Su</title>
-	<meta name="description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 Sean 開發，以 Google Excel 當資料庫，介接 Google Map Embed API，輕鬆好管理。">
+	<meta name="description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 Sean Su 開發，以 Google Excel 當資料庫，介接 Google Map Embed API，輕鬆好管理。">
 	<meta property="og:url" content="https://sean-su.github.io/food-check/" />
 	<meta property="og:site_name" content="午餐吃什麼 - by Sean Su" />
 	<meta property="og:title" content="午餐吃什麼 - by Sean Su" />
-	<meta property="og:description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 Sean 開發，以 Google Excel 當資料庫，介接 Google Map Embed API，輕鬆好管理。" />
+	<meta property="og:description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 Sean Su 開發，以 Google Excel 當資料庫，介接 Google Map Embed API，輕鬆好管理。" />
 	<meta property="og:image" content="https://sean-su.github.io/food-check/assets/img/bg-food.jpg" />
 	<meta itemprop="name" content="午餐吃什麼 - by Sean Su">
-	<meta itemprop="description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 Sean 開發，以 Google Excel 當資料庫，介接 Google Map Embed API，輕鬆好管理。">
+	<meta itemprop="description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 Sean Su 開發，以 Google Excel 當資料庫，介接 Google Map Embed API，輕鬆好管理。">
 	<meta itemprop="image" content="https://sean-su.github.io/food-check/assets/img/bg-food.jpg">
 
 
@@ -43,7 +43,7 @@
 			<div class="god">
 				<h1>
 					<span class="wrap">
-						<span>中獎者是？</span>
+						<span>午餐吃什麼呢？</span>
 					</span>
 				</h1>
 			</div>
@@ -72,10 +72,7 @@
 
 			<!--  地圖  -->
 			<div id="map" class="map">
-				<iframe
-					frameborder="0" style="border:0"
-					src="" allowfullscreen>
-				</iframe>
+				<iframe frameborder="0" style="border:0" src="" allowfullscreen></iframe>
 			</div>
 		</div>
 	</main>
@@ -90,11 +87,10 @@
 					var vages = []; // 素
 					var meats = []; // 葷
 
-					// 倒入店家
+					// 分葷、素，塞入陣列
 					var d = data.feed.entry,
 							len =  d.length;
 					
-					// 分葷、素，塞入陣列
 					for(var i = 0; i < len; i++) {
 						if(d[i].gsx$vage.$t === '是') {
 							vages.push(d[i].gsx$shops.$t);
@@ -107,7 +103,7 @@
 
 					// 點擊按鈕後執行
 					var r; // 亂數
-					var max, min;
+					var max, min; // 陣列的最大、小值
 					var txt; // 結果
 					
 					$('.btn-start').on('click', function(e) {
@@ -123,8 +119,6 @@
 								return Math.floor(Math.random() * (max - min + 1)) + min;
 							};
 
-							txt = toggle[r()];
-
 							// 清空、插入選項
 							$('.wrap').children().remove();
 							for(var i = 0; i < toggle.length; i++) {
@@ -134,11 +128,11 @@
 							// 禁止按鈕再被點擊
 							$(e.target).addClass('not-allow');
 
-
 							// 加入動畫 class name
 							$('.wrap > span').addClass('span-' + (toggle.length - 1));
 
 							// 亂數決定中選店家
+              txt = toggle[r()];
 							$('.wrap > span').eq(0).text(txt);
 							
 							// 移除動畫
@@ -150,21 +144,24 @@
 
 							}, 1000);
 
+              // 顯示地圖
 							$('#map iframe').on('load', function(){
 								$('#map iframe').removeClass('hidden');
 								$(e.target).removeClass('not-allow');
 							});
 						};
 
+
+
 						// 地圖先消失
 						$('#map iframe').addClass('hidden');
 
-						// 是素食
+						// 開始執行 fn
 						if($('#vage').prop('checked') === true) {
-							chooseShop(vages);
+							chooseShop(vages); // 素食
 						}
 						else {
-							chooseShop(meats);
+							chooseShop(meats); // 葷食
 						}
 
 					});
@@ -174,6 +171,5 @@
 
 		});
 	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM&callback=initMap" async defer></script>
 </body>
 </html>
