@@ -3,27 +3,31 @@
   box-sizing: border-box; }
 
 .full-block {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
   height: 100vh;
   background: #FFF url("../img/bg-food.jpg") no-repeat center right;
   background-size: contain; }
+
+@media screen and (max-width: 768px) {
+  .full-block {
+    background-position-x: center;
+    background-size: cover; } }
 
 .main-block {
   margin-right: 25vw;
   width: 40vw;
   text-align: center; }
 
+@media screen and (max-width: 768px) {
+  .main-block {
+    margin-right: 0;
+    width: calc(100vw - 12px); } }
+
 .god {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.54);
   border: 1px solid rgba(41, 44, 55, 0.27);
@@ -31,17 +35,22 @@
   .god span {
     position: relative;
     display: block; }
+  .god h1 {
+    margin: 0;
+    font-size: 4rem; }
   .god > h1 > span {
     display: block;
     max-height: 73px;
     overflow: hidden;
     color: #333844; }
 
-@-webkit-keyframes spin-1 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 1); } }
+@media screen and (max-width: 768px) {
+  .god {
+    padding: 2rem .5rem; }
+    .god h1 {
+      font-size: 2rem; }
+    .god > h1 > span {
+      max-height: 36px; } }
 
 @keyframes spin-1 {
   from {
@@ -50,14 +59,7 @@
     top: calc(-73px * 1); } }
 
 .god .wrap > .span-1 {
-  -webkit-animation: spin-1 0.03s infinite linear;
-          animation: spin-1 0.03s infinite linear; }
-
-@-webkit-keyframes spin-2 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 2); } }
+  animation: spin-1 0.03s infinite linear; }
 
 @keyframes spin-2 {
   from {
@@ -66,14 +68,7 @@
     top: calc(-73px * 2); } }
 
 .god .wrap > .span-2 {
-  -webkit-animation: spin-2 0.06s infinite linear;
-          animation: spin-2 0.06s infinite linear; }
-
-@-webkit-keyframes spin-3 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 3); } }
+  animation: spin-2 0.06s infinite linear; }
 
 @keyframes spin-3 {
   from {
@@ -82,14 +77,7 @@
     top: calc(-73px * 3); } }
 
 .god .wrap > .span-3 {
-  -webkit-animation: spin-3 0.09s infinite linear;
-          animation: spin-3 0.09s infinite linear; }
-
-@-webkit-keyframes spin-4 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 4); } }
+  animation: spin-3 0.09s infinite linear; }
 
 @keyframes spin-4 {
   from {
@@ -98,14 +86,7 @@
     top: calc(-73px * 4); } }
 
 .god .wrap > .span-4 {
-  -webkit-animation: spin-4 0.12s infinite linear;
-          animation: spin-4 0.12s infinite linear; }
-
-@-webkit-keyframes spin-5 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 5); } }
+  animation: spin-4 0.12s infinite linear; }
 
 @keyframes spin-5 {
   from {
@@ -114,14 +95,7 @@
     top: calc(-73px * 5); } }
 
 .god .wrap > .span-5 {
-  -webkit-animation: spin-5 0.15s infinite linear;
-          animation: spin-5 0.15s infinite linear; }
-
-@-webkit-keyframes spin-6 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 6); } }
+  animation: spin-5 0.15s infinite linear; }
 
 @keyframes spin-6 {
   from {
@@ -130,14 +104,7 @@
     top: calc(-73px * 6); } }
 
 .god .wrap > .span-6 {
-  -webkit-animation: spin-6 0.18s infinite linear;
-          animation: spin-6 0.18s infinite linear; }
-
-@-webkit-keyframes spin-7 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 7); } }
+  animation: spin-6 0.18s infinite linear; }
 
 @keyframes spin-7 {
   from {
@@ -146,14 +113,7 @@
     top: calc(-73px * 7); } }
 
 .god .wrap > .span-7 {
-  -webkit-animation: spin-7 0.21s infinite linear;
-          animation: spin-7 0.21s infinite linear; }
-
-@-webkit-keyframes spin-8 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 8); } }
+  animation: spin-7 0.21s infinite linear; }
 
 @keyframes spin-8 {
   from {
@@ -162,14 +122,7 @@
     top: calc(-73px * 8); } }
 
 .god .wrap > .span-8 {
-  -webkit-animation: spin-8 0.24s infinite linear;
-          animation: spin-8 0.24s infinite linear; }
-
-@-webkit-keyframes spin-9 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 9); } }
+  animation: spin-8 0.24s infinite linear; }
 
 @keyframes spin-9 {
   from {
@@ -178,14 +131,7 @@
     top: calc(-73px * 9); } }
 
 .god .wrap > .span-9 {
-  -webkit-animation: spin-9 0.27s infinite linear;
-          animation: spin-9 0.27s infinite linear; }
-
-@-webkit-keyframes spin-10 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 10); } }
+  animation: spin-9 0.27s infinite linear; }
 
 @keyframes spin-10 {
   from {
@@ -194,14 +140,7 @@
     top: calc(-73px * 10); } }
 
 .god .wrap > .span-10 {
-  -webkit-animation: spin-10 0.3s infinite linear;
-          animation: spin-10 0.3s infinite linear; }
-
-@-webkit-keyframes spin-11 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 11); } }
+  animation: spin-10 0.3s infinite linear; }
 
 @keyframes spin-11 {
   from {
@@ -210,14 +149,7 @@
     top: calc(-73px * 11); } }
 
 .god .wrap > .span-11 {
-  -webkit-animation: spin-11 0.33s infinite linear;
-          animation: spin-11 0.33s infinite linear; }
-
-@-webkit-keyframes spin-12 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 12); } }
+  animation: spin-11 0.33s infinite linear; }
 
 @keyframes spin-12 {
   from {
@@ -226,14 +158,7 @@
     top: calc(-73px * 12); } }
 
 .god .wrap > .span-12 {
-  -webkit-animation: spin-12 0.36s infinite linear;
-          animation: spin-12 0.36s infinite linear; }
-
-@-webkit-keyframes spin-13 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 13); } }
+  animation: spin-12 0.36s infinite linear; }
 
 @keyframes spin-13 {
   from {
@@ -242,14 +167,7 @@
     top: calc(-73px * 13); } }
 
 .god .wrap > .span-13 {
-  -webkit-animation: spin-13 0.39s infinite linear;
-          animation: spin-13 0.39s infinite linear; }
-
-@-webkit-keyframes spin-14 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 14); } }
+  animation: spin-13 0.39s infinite linear; }
 
 @keyframes spin-14 {
   from {
@@ -258,14 +176,7 @@
     top: calc(-73px * 14); } }
 
 .god .wrap > .span-14 {
-  -webkit-animation: spin-14 0.42s infinite linear;
-          animation: spin-14 0.42s infinite linear; }
-
-@-webkit-keyframes spin-15 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 15); } }
+  animation: spin-14 0.42s infinite linear; }
 
 @keyframes spin-15 {
   from {
@@ -274,14 +185,7 @@
     top: calc(-73px * 15); } }
 
 .god .wrap > .span-15 {
-  -webkit-animation: spin-15 0.45s infinite linear;
-          animation: spin-15 0.45s infinite linear; }
-
-@-webkit-keyframes spin-16 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 16); } }
+  animation: spin-15 0.45s infinite linear; }
 
 @keyframes spin-16 {
   from {
@@ -290,14 +194,7 @@
     top: calc(-73px * 16); } }
 
 .god .wrap > .span-16 {
-  -webkit-animation: spin-16 0.48s infinite linear;
-          animation: spin-16 0.48s infinite linear; }
-
-@-webkit-keyframes spin-17 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 17); } }
+  animation: spin-16 0.48s infinite linear; }
 
 @keyframes spin-17 {
   from {
@@ -306,14 +203,7 @@
     top: calc(-73px * 17); } }
 
 .god .wrap > .span-17 {
-  -webkit-animation: spin-17 0.51s infinite linear;
-          animation: spin-17 0.51s infinite linear; }
-
-@-webkit-keyframes spin-18 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 18); } }
+  animation: spin-17 0.51s infinite linear; }
 
 @keyframes spin-18 {
   from {
@@ -322,14 +212,7 @@
     top: calc(-73px * 18); } }
 
 .god .wrap > .span-18 {
-  -webkit-animation: spin-18 0.54s infinite linear;
-          animation: spin-18 0.54s infinite linear; }
-
-@-webkit-keyframes spin-19 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 19); } }
+  animation: spin-18 0.54s infinite linear; }
 
 @keyframes spin-19 {
   from {
@@ -338,14 +221,7 @@
     top: calc(-73px * 19); } }
 
 .god .wrap > .span-19 {
-  -webkit-animation: spin-19 0.57s infinite linear;
-          animation: spin-19 0.57s infinite linear; }
-
-@-webkit-keyframes spin-20 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 20); } }
+  animation: spin-19 0.57s infinite linear; }
 
 @keyframes spin-20 {
   from {
@@ -354,14 +230,7 @@
     top: calc(-73px * 20); } }
 
 .god .wrap > .span-20 {
-  -webkit-animation: spin-20 0.6s infinite linear;
-          animation: spin-20 0.6s infinite linear; }
-
-@-webkit-keyframes spin-21 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 21); } }
+  animation: spin-20 0.6s infinite linear; }
 
 @keyframes spin-21 {
   from {
@@ -370,14 +239,7 @@
     top: calc(-73px * 21); } }
 
 .god .wrap > .span-21 {
-  -webkit-animation: spin-21 0.63s infinite linear;
-          animation: spin-21 0.63s infinite linear; }
-
-@-webkit-keyframes spin-22 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 22); } }
+  animation: spin-21 0.63s infinite linear; }
 
 @keyframes spin-22 {
   from {
@@ -386,14 +248,7 @@
     top: calc(-73px * 22); } }
 
 .god .wrap > .span-22 {
-  -webkit-animation: spin-22 0.66s infinite linear;
-          animation: spin-22 0.66s infinite linear; }
-
-@-webkit-keyframes spin-23 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 23); } }
+  animation: spin-22 0.66s infinite linear; }
 
 @keyframes spin-23 {
   from {
@@ -402,14 +257,7 @@
     top: calc(-73px * 23); } }
 
 .god .wrap > .span-23 {
-  -webkit-animation: spin-23 0.69s infinite linear;
-          animation: spin-23 0.69s infinite linear; }
-
-@-webkit-keyframes spin-24 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 24); } }
+  animation: spin-23 0.69s infinite linear; }
 
 @keyframes spin-24 {
   from {
@@ -418,14 +266,7 @@
     top: calc(-73px * 24); } }
 
 .god .wrap > .span-24 {
-  -webkit-animation: spin-24 0.72s infinite linear;
-          animation: spin-24 0.72s infinite linear; }
-
-@-webkit-keyframes spin-25 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 25); } }
+  animation: spin-24 0.72s infinite linear; }
 
 @keyframes spin-25 {
   from {
@@ -434,14 +275,7 @@
     top: calc(-73px * 25); } }
 
 .god .wrap > .span-25 {
-  -webkit-animation: spin-25 0.75s infinite linear;
-          animation: spin-25 0.75s infinite linear; }
-
-@-webkit-keyframes spin-26 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 26); } }
+  animation: spin-25 0.75s infinite linear; }
 
 @keyframes spin-26 {
   from {
@@ -450,14 +284,7 @@
     top: calc(-73px * 26); } }
 
 .god .wrap > .span-26 {
-  -webkit-animation: spin-26 0.78s infinite linear;
-          animation: spin-26 0.78s infinite linear; }
-
-@-webkit-keyframes spin-27 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 27); } }
+  animation: spin-26 0.78s infinite linear; }
 
 @keyframes spin-27 {
   from {
@@ -466,14 +293,7 @@
     top: calc(-73px * 27); } }
 
 .god .wrap > .span-27 {
-  -webkit-animation: spin-27 0.81s infinite linear;
-          animation: spin-27 0.81s infinite linear; }
-
-@-webkit-keyframes spin-28 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 28); } }
+  animation: spin-27 0.81s infinite linear; }
 
 @keyframes spin-28 {
   from {
@@ -482,14 +302,7 @@
     top: calc(-73px * 28); } }
 
 .god .wrap > .span-28 {
-  -webkit-animation: spin-28 0.84s infinite linear;
-          animation: spin-28 0.84s infinite linear; }
-
-@-webkit-keyframes spin-29 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 29); } }
+  animation: spin-28 0.84s infinite linear; }
 
 @keyframes spin-29 {
   from {
@@ -498,14 +311,7 @@
     top: calc(-73px * 29); } }
 
 .god .wrap > .span-29 {
-  -webkit-animation: spin-29 0.87s infinite linear;
-          animation: spin-29 0.87s infinite linear; }
-
-@-webkit-keyframes spin-30 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 30); } }
+  animation: spin-29 0.87s infinite linear; }
 
 @keyframes spin-30 {
   from {
@@ -514,14 +320,7 @@
     top: calc(-73px * 30); } }
 
 .god .wrap > .span-30 {
-  -webkit-animation: spin-30 0.9s infinite linear;
-          animation: spin-30 0.9s infinite linear; }
-
-@-webkit-keyframes spin-31 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 31); } }
+  animation: spin-30 0.9s infinite linear; }
 
 @keyframes spin-31 {
   from {
@@ -530,14 +329,7 @@
     top: calc(-73px * 31); } }
 
 .god .wrap > .span-31 {
-  -webkit-animation: spin-31 0.93s infinite linear;
-          animation: spin-31 0.93s infinite linear; }
-
-@-webkit-keyframes spin-32 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 32); } }
+  animation: spin-31 0.93s infinite linear; }
 
 @keyframes spin-32 {
   from {
@@ -546,14 +338,7 @@
     top: calc(-73px * 32); } }
 
 .god .wrap > .span-32 {
-  -webkit-animation: spin-32 0.96s infinite linear;
-          animation: spin-32 0.96s infinite linear; }
-
-@-webkit-keyframes spin-33 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 33); } }
+  animation: spin-32 0.96s infinite linear; }
 
 @keyframes spin-33 {
   from {
@@ -562,14 +347,7 @@
     top: calc(-73px * 33); } }
 
 .god .wrap > .span-33 {
-  -webkit-animation: spin-33 0.99s infinite linear;
-          animation: spin-33 0.99s infinite linear; }
-
-@-webkit-keyframes spin-34 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 34); } }
+  animation: spin-33 0.99s infinite linear; }
 
 @keyframes spin-34 {
   from {
@@ -578,14 +356,7 @@
     top: calc(-73px * 34); } }
 
 .god .wrap > .span-34 {
-  -webkit-animation: spin-34 1.02s infinite linear;
-          animation: spin-34 1.02s infinite linear; }
-
-@-webkit-keyframes spin-35 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 35); } }
+  animation: spin-34 1.02s infinite linear; }
 
 @keyframes spin-35 {
   from {
@@ -594,14 +365,7 @@
     top: calc(-73px * 35); } }
 
 .god .wrap > .span-35 {
-  -webkit-animation: spin-35 1.05s infinite linear;
-          animation: spin-35 1.05s infinite linear; }
-
-@-webkit-keyframes spin-36 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 36); } }
+  animation: spin-35 1.05s infinite linear; }
 
 @keyframes spin-36 {
   from {
@@ -610,14 +374,7 @@
     top: calc(-73px * 36); } }
 
 .god .wrap > .span-36 {
-  -webkit-animation: spin-36 1.08s infinite linear;
-          animation: spin-36 1.08s infinite linear; }
-
-@-webkit-keyframes spin-37 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 37); } }
+  animation: spin-36 1.08s infinite linear; }
 
 @keyframes spin-37 {
   from {
@@ -626,14 +383,7 @@
     top: calc(-73px * 37); } }
 
 .god .wrap > .span-37 {
-  -webkit-animation: spin-37 1.11s infinite linear;
-          animation: spin-37 1.11s infinite linear; }
-
-@-webkit-keyframes spin-38 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 38); } }
+  animation: spin-37 1.11s infinite linear; }
 
 @keyframes spin-38 {
   from {
@@ -642,14 +392,7 @@
     top: calc(-73px * 38); } }
 
 .god .wrap > .span-38 {
-  -webkit-animation: spin-38 1.14s infinite linear;
-          animation: spin-38 1.14s infinite linear; }
-
-@-webkit-keyframes spin-39 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 39); } }
+  animation: spin-38 1.14s infinite linear; }
 
 @keyframes spin-39 {
   from {
@@ -658,14 +401,7 @@
     top: calc(-73px * 39); } }
 
 .god .wrap > .span-39 {
-  -webkit-animation: spin-39 1.17s infinite linear;
-          animation: spin-39 1.17s infinite linear; }
-
-@-webkit-keyframes spin-40 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 40); } }
+  animation: spin-39 1.17s infinite linear; }
 
 @keyframes spin-40 {
   from {
@@ -674,14 +410,7 @@
     top: calc(-73px * 40); } }
 
 .god .wrap > .span-40 {
-  -webkit-animation: spin-40 1.2s infinite linear;
-          animation: spin-40 1.2s infinite linear; }
-
-@-webkit-keyframes spin-41 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 41); } }
+  animation: spin-40 1.2s infinite linear; }
 
 @keyframes spin-41 {
   from {
@@ -690,14 +419,7 @@
     top: calc(-73px * 41); } }
 
 .god .wrap > .span-41 {
-  -webkit-animation: spin-41 1.23s infinite linear;
-          animation: spin-41 1.23s infinite linear; }
-
-@-webkit-keyframes spin-42 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 42); } }
+  animation: spin-41 1.23s infinite linear; }
 
 @keyframes spin-42 {
   from {
@@ -706,14 +428,7 @@
     top: calc(-73px * 42); } }
 
 .god .wrap > .span-42 {
-  -webkit-animation: spin-42 1.26s infinite linear;
-          animation: spin-42 1.26s infinite linear; }
-
-@-webkit-keyframes spin-43 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 43); } }
+  animation: spin-42 1.26s infinite linear; }
 
 @keyframes spin-43 {
   from {
@@ -722,14 +437,7 @@
     top: calc(-73px * 43); } }
 
 .god .wrap > .span-43 {
-  -webkit-animation: spin-43 1.29s infinite linear;
-          animation: spin-43 1.29s infinite linear; }
-
-@-webkit-keyframes spin-44 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 44); } }
+  animation: spin-43 1.29s infinite linear; }
 
 @keyframes spin-44 {
   from {
@@ -738,14 +446,7 @@
     top: calc(-73px * 44); } }
 
 .god .wrap > .span-44 {
-  -webkit-animation: spin-44 1.32s infinite linear;
-          animation: spin-44 1.32s infinite linear; }
-
-@-webkit-keyframes spin-45 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 45); } }
+  animation: spin-44 1.32s infinite linear; }
 
 @keyframes spin-45 {
   from {
@@ -754,14 +455,7 @@
     top: calc(-73px * 45); } }
 
 .god .wrap > .span-45 {
-  -webkit-animation: spin-45 1.35s infinite linear;
-          animation: spin-45 1.35s infinite linear; }
-
-@-webkit-keyframes spin-46 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 46); } }
+  animation: spin-45 1.35s infinite linear; }
 
 @keyframes spin-46 {
   from {
@@ -770,14 +464,7 @@
     top: calc(-73px * 46); } }
 
 .god .wrap > .span-46 {
-  -webkit-animation: spin-46 1.38s infinite linear;
-          animation: spin-46 1.38s infinite linear; }
-
-@-webkit-keyframes spin-47 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 47); } }
+  animation: spin-46 1.38s infinite linear; }
 
 @keyframes spin-47 {
   from {
@@ -786,14 +473,7 @@
     top: calc(-73px * 47); } }
 
 .god .wrap > .span-47 {
-  -webkit-animation: spin-47 1.41s infinite linear;
-          animation: spin-47 1.41s infinite linear; }
-
-@-webkit-keyframes spin-48 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 48); } }
+  animation: spin-47 1.41s infinite linear; }
 
 @keyframes spin-48 {
   from {
@@ -802,14 +482,7 @@
     top: calc(-73px * 48); } }
 
 .god .wrap > .span-48 {
-  -webkit-animation: spin-48 1.44s infinite linear;
-          animation: spin-48 1.44s infinite linear; }
-
-@-webkit-keyframes spin-49 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 49); } }
+  animation: spin-48 1.44s infinite linear; }
 
 @keyframes spin-49 {
   from {
@@ -818,14 +491,7 @@
     top: calc(-73px * 49); } }
 
 .god .wrap > .span-49 {
-  -webkit-animation: spin-49 1.47s infinite linear;
-          animation: spin-49 1.47s infinite linear; }
-
-@-webkit-keyframes spin-50 {
-  from {
-    top: 0; }
-  to {
-    top: calc(-73px * 50); } }
+  animation: spin-49 1.47s infinite linear; }
 
 @keyframes spin-50 {
   from {
@@ -834,16 +500,10 @@
     top: calc(-73px * 50); } }
 
 .god .wrap > .span-50 {
-  -webkit-animation: spin-50 1.5s infinite linear;
-          animation: spin-50 1.5s infinite linear; }
+  animation: spin-50 1.5s infinite linear; }
 
 .btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin-bottom: 3rem; }
 
 .vegetarian {
@@ -851,17 +511,13 @@
   color: #689F38; }
 
 .btn-start {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 1;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
   margin-left: 2rem;
   padding: 1rem 2rem;
   width: 100%;
@@ -878,19 +534,15 @@
     .btn-start.not-allow::after {
       font-family: 'FontAwesome';
       content: '\f110';
-      -webkit-animation: fa-spin 2s infinite linear;
-              animation: fa-spin 2s infinite linear; }
+      animation: fa-spin 2s infinite linear; }
     .btn-start.not-allow:hover {
       color: #CCC; }
 
 .btn-start .line, .btn-start.not-allow .line {
   position: absolute;
   background: #CD0505;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  transition: -webkit-transform .1s ease;
-  transition: transform .1s ease;
-  transition: transform .1s ease, -webkit-transform .1s ease; }
+  transform: scale(0);
+  transition: transform .1s ease; }
   .btn-start .line.-h, .btn-start.not-allow .line.-h {
     width: 100%;
     height: 2px; }
@@ -900,23 +552,19 @@
   .btn-start .line.top, .btn-start.not-allow .line.top {
     top: -2px;
     left: 0;
-    -webkit-transform-origin: left;
-            transform-origin: left; }
+    transform-origin: left; }
   .btn-start .line.right, .btn-start.not-allow .line.right {
     top: 0;
     right: -2px;
-    -webkit-transform-origin: top;
-            transform-origin: top; }
+    transform-origin: top; }
   .btn-start .line.bottom, .btn-start.not-allow .line.bottom {
     bottom: -2px;
     right: 0;
-    -webkit-transform-origin: right;
-            transform-origin: right; }
+    transform-origin: right; }
   .btn-start .line.left, .btn-start.not-allow .line.left {
     bottom: 0;
     left: -2px;
-    -webkit-transform-origin: bottom;
-            transform-origin: bottom; }
+    transform-origin: bottom; }
 
 .btn-start.not-allow .line {
   background: #FFF; }
@@ -934,8 +582,7 @@
   transition-delay: 0; }
 
 .btn-start:hover .line, .btn-start.not-allow:hover .line {
-  -webkit-transform: scale(1);
-          transform: scale(1); }
+  transform: scale(1); }
   .btn-start:hover .line.top, .btn-start.not-allow:hover .line.top {
     transition-delay: 0s; }
   .btn-start:hover .line.right, .btn-start.not-allow:hover .line.right {
@@ -944,10 +591,6 @@
     transition-delay: .2s; }
   .btn-start:hover .line.left, .btn-start.not-allow:hover .line.left {
     transition-delay: .3s; }
-
-h1 {
-  margin: 0;
-  font-size: 4rem; }
 
 .toggle {
   position: relative;
@@ -986,8 +629,7 @@ input:focus + .button {
 
 input:checked + .button:before,
 input:checked + .button:after {
-  -webkit-transform: translateX(46px);
-          transform: translateX(46px); }
+  transform: translateX(46px); }
 
 input:checked + .button:after {
   color: #689F38; }
@@ -1003,15 +645,9 @@ input:checked + .button:after {
     position: absolute;
     left: 4px;
     bottom: 4px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
     height: 46px;
     width: 46px;
     font-size: 1.5rem;
@@ -1019,22 +655,23 @@ input:checked + .button:after {
     transition: .4s; }
 
 .map {
-  width: 100%;
-  height: calc((40vw / 16) * 9); }
+  width: 100%; }
   .map iframe {
     width: 100%;
-    height: 100%;
+    height: calc((40vw / 16) * 9);
     transition: all .5s ease; }
   .map .hidden {
     visibility: hidden;
     opacity: 0; }
 
+@media screen and (max-width: 768px) {
+  .map iframe {
+    height: 40vh; } }
+
 .github {
   position: fixed;
   left: 0;
   bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100px;
   height: 100px; }
@@ -1051,6 +688,17 @@ input:checked + .button:after {
     bottom: 5px;
     font-size: 3rem;
     color: #FFF; }
+
+@media screen and (max-width: 768px) {
+  .github {
+    width: 70px;
+    height: 70px; }
+    .github::before {
+      border-width: 70px 0 0 70px; }
+    .github .fa {
+      left: 8px;
+      bottom: 4px;
+      font-size: 2rem; } }
 
 .search-only {
   position: absolute;

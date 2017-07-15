@@ -10,13 +10,23 @@
 	background: #FFF url('../img/bg-food.jpg') no-repeat center right
 	background-size: contain
 
+@media screen and (max-width: 768px)
+  .full-block
+    background-position-x: center
+    background-size: cover
+
 .main-block
 	margin-right: 25vw
 	width: 40vw
 	text-align: center
 
+@media screen and (max-width: 768px)
+  .main-block
+    margin-right: 0
+    width: calc(100vw - 12px)
+
 .god
-  margin-bottom: 3rem
+  margin-bottom: 1rem
   padding: 2rem
   background: rgba(#FFF, .54)
   border: 1px solid rgba(41, 44, 55, 0.27)
@@ -24,11 +34,22 @@
   span
     position: relative
     display: block
+  h1
+    margin: 0
+    font-size: 4rem
   > h1 > span
     display: block
     max-height: 73px
     overflow: hidden
     color: #333844
+
+@media screen and (max-width: 768px)
+  .god
+    padding: 2rem .5rem
+    h1
+      font-size: 2rem
+    > h1 > span
+      max-height: 36px
 
 
 @for $i from 1 through 50
@@ -44,7 +65,6 @@
 
 .btns
   display: flex
-  align-items: center
   margin-bottom: 3rem
 
 .vegetarian
@@ -58,6 +78,8 @@
   justify-content: center
   position: relative
   z-index: 1
+  margin-top: 5vh
+  margin-bottom: 2vh
   margin-left: 2rem
   padding: 1rem 2rem
   width: 100%
@@ -136,10 +158,6 @@
     &.left
       transition-delay: .3s
 
-h1
-	margin: 0
-	font-size: 4rem
-
 .toggle
   position: relative
   display: inline-block
@@ -205,14 +223,18 @@ input
 // map
 .map
   width: 100%
-  height: calc((40vw / 16) * 9)
   iframe
     width: 100%
-    height: 100%
+    height: calc((40vw / 16) * 9)
     transition: all .5s ease
   .hidden
     visibility: hidden
     opacity: 0
+
+@media screen and (max-width: 768px)
+  .map
+    iframe
+      height: 40vh
 
 
 // github
@@ -236,6 +258,17 @@ input
     bottom: 5px
     font-size: 3rem
     color: #FFF
+
+@media screen and (max-width: 768px)
+  .github
+    width: 70px
+    height: 70px
+    &::before
+      border-width: 70px 0 0 70px
+    .fa
+      left: 8px
+      bottom: 4px
+      font-size: 2rem
 
 
 
