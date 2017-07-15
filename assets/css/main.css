@@ -13,6 +13,7 @@
 
 @media screen and (max-width: 768px) {
   .full-block {
+    align-items: flex-start;
     background-position-x: center;
     background-size: cover; } }
 
@@ -566,8 +567,12 @@
     left: -2px;
     transform-origin: bottom; }
 
-.btn-start.not-allow .line {
-  background: #FFF; }
+.btn-start.not-allow {
+  border-color: transparent; }
+  .btn-start.not-allow, .btn-start.not-allow:hover {
+    color: #CD0505; }
+  .btn-start.not-allow .line {
+    background: transparent; }
 
 .btn-start .line.top, .btn-start.not-allow .line.top {
   transition-delay: .3s; }
@@ -634,7 +639,6 @@ input:checked + .button:after {
 input:checked + .button:after {
   color: #689F38; }
 
-/* Rounded sliders */
 .button.round {
   border-radius: 34px; }
   .button.round:before {
@@ -666,7 +670,7 @@ input:checked + .button:after {
 
 @media screen and (max-width: 768px) {
   .map iframe {
-    height: 40vh; } }
+    min-height: 30vh; } }
 
 .github {
   position: fixed;

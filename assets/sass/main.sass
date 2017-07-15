@@ -12,6 +12,7 @@
 
 @media screen and (max-width: 768px)
   .full-block
+    align-items: flex-start
     background-position-x: center
     background-size: cover
 
@@ -132,8 +133,12 @@
       left: -2px
       transform-origin: bottom
 
-.btn-start.not-allow .line
-  background: #FFF
+.btn-start.not-allow
+  border-color: transparent
+  &, &:hover
+    color: #CD0505
+  .line
+    background: transparent
 
 // 線的效果
 .btn-start, .btn-start.not-allow
@@ -158,6 +163,8 @@
     &.left
       transition-delay: .3s
 
+
+// toggle button
 .toggle
   position: relative
   display: inline-block
@@ -198,10 +205,8 @@ input
   &:checked + .button:after
     color: #689F38
 
-/* Rounded sliders
 .button.round
   border-radius: 34px
-  // color: #8BC34A
   &:before
     border-radius: 50%
   &:after
@@ -234,7 +239,7 @@ input
 @media screen and (max-width: 768px)
   .map
     iframe
-      height: 40vh
+      min-height: 30vh
 
 
 // github
