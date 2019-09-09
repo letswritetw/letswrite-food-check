@@ -1,14 +1,14 @@
 *, *::before, *::after
-	box-sizing: border-box
+  box-sizing: border-box
 
 .full-block
-	display: flex
-	align-items: center
-	justify-content: center
-	width: 100vw
-	height: 100vh
-	background: #FFF url('../img/bg-food.jpg') no-repeat center right
-	background-size: contain
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100vw
+  height: 100vh
+  background: #FFF url('../img/bg-food.jpg') no-repeat center right
+  background-size: contain
 
 @media screen and (max-width: 768px)
   .full-block
@@ -17,9 +17,9 @@
     background-size: cover
 
 .main-block
-	margin-right: 25vw
-	width: 40vw
-	text-align: center
+  margin-right: 25vw
+  width: 40vw
+  text-align: center
 
 @media screen and (max-width: 768px)
   .main-block
@@ -52,18 +52,16 @@
     > h1 > span
       max-height: 36px
 
-
 @for $i from 1 through 50
-	$t: .03s * $i
-	@keyframes spin-#{$i}
-		from
-			top: 0
-		to
-			top: calc(-73px * #{$i})
-	.god .wrap > .span-#{$i}
-		animation: spin-#{$i} $t infinite linear
-
-
+  $t: .03s * $i
+  @keyframes spin-#{$i}
+    from
+      top: 0
+    to
+      top: calc(-73px * #{$i})
+  .god .wrap > .span-#{$i}
+    animation: spin-#{$i} $t infinite linear
+    
 .btns
   display: flex
   margin-bottom: 3rem
