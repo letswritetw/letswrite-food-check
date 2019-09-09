@@ -99,7 +99,7 @@
 		</p>
 	</div>
 	
-	
+
 	<script>
 		const url = 'https://spreadsheets.google.com/feeds/list/11wLZL0bNoD7ZQwfN3Tkx41YB6IgLbv4ftsrxywA0114/1/public/values?alt=json';
 
@@ -113,12 +113,7 @@
 				const d = data.feed.entry, len =  d.length;
 				
 				for(let i = 0; i < len; i++) {
-					if(d[i].gsx$vage.$t === '是') {
-						vages.push(d[i].gsx$shops.$t);
-					}
-					else {
-						meats.push(d[i].gsx$shops.$t);
-					}
+					d[i].gsx$vage.$t === '是' ? vages.push(d[i].gsx$shops.$t) : meats.push(d[i].gsx$shops.$t);
 				}
 				
 
@@ -131,6 +126,7 @@
 				// 地圖
 				const map = document.querySelector('#map iframe');
 
+				// 按鈕
 				const btn = document.querySelector('.btn-start');
 				
 				btn.addEventListener('click', e => {
