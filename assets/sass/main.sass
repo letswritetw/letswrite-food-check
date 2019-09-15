@@ -52,6 +52,10 @@
     span
       max-height: 36px
 
+.god .wrap > span
+  animation-iteration-count: infinite
+  animation-timing-function: linear
+
 @for $i from 1 through 50
   $t: .03s * $i
   @keyframes spin-#{$i}
@@ -60,7 +64,8 @@
     to
       top: calc(-73px * #{$i})
   .god .wrap > .span-#{$i}
-    animation: spin-#{$i} $t infinite linear
+    animation-name: spin-#{$i}
+    animation-duration: $t
     
 .btns
   display: flex

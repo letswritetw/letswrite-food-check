@@ -103,6 +103,8 @@
 	<script>
 		const url = 'https://spreadsheets.google.com/feeds/list/11wLZL0bNoD7ZQwfN3Tkx41YB6IgLbv4ftsrxywA0114/1/public/values?alt=json';
 
+		const duration = 2000; // 拉霸效果執行多久
+
 		fetch(url)
 			.then(res => res.json())
 			.then(data => {
@@ -162,12 +164,13 @@
 						
 						// 移除動畫
 						setTimeout(() => {
+							// 停止拉霸動畫
 							Array.prototype.forEach.call(list, l => l.removeAttribute('class'));
 
 							// 改變地圖位置
 							map.src = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM&q=' + txt;
 
-						}, 1000);
+						}, duration);
 
 						// 顯示地圖
 						map.addEventListener('load', () => {
