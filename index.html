@@ -109,6 +109,9 @@
 
 		const duration = 2000; // 拉霸效果執行多久
 
+		// Maps Embed API 的 key，可由 https://console.developers.google.com/apis 申請
+		const embedApiKey = 'AIzaSyDVSu8cjT27wDKGUaahg5qx-FXlNVqD2N8';
+
 		fetch(url)
 			.then(res => res.json())
 			.then(data => {
@@ -172,7 +175,7 @@
 							Array.prototype.forEach.call(list, l => l.removeAttribute('class'));
 
 							// 改變地圖位置
-							map.src = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM&q=' + txt;
+							map.src = 'https://www.google.com/maps/embed/v1/place?key=' + embedApiKey + '&q=' + txt;
 
 						}, duration);
 
