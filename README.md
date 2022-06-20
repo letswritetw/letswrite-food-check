@@ -1,4 +1,4 @@
-# food-check
+# 用原生 JavaScript 做一個簡單的抽獎功能頁面
 
 午餐吃什麼？用抽獎方式來決定今天的午餐吧！
 
@@ -6,4 +6,4 @@
 
 Demo：[Demo](https://letswritetw.github.io/letswrite-food-check/)
 
-教學：[用原生JS做一個簡單的抽獎功能頁面](https://www.letswrite.tw/simple-lottery/)
+教學：[用原生 JavaScript 做一個簡單的抽獎功能頁面](https://www.letswrite.tw/simple-lottery/)
