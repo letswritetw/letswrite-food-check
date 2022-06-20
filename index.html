@@ -7,15 +7,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
 
 	<title>午餐吃什麼 - August - Let's Write</title>
-	<meta name="description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 August 開發，以 Google Excel 當資料庫，介接 Google Map Embed API，輕鬆好管理。">
+	<meta name="description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 August 開發，以 Google Sheets 當資料庫，介接 Google Map Embed API，輕鬆好管理。">
 	<link rel="shortcut icon" href="https://letswritetw.github.io/letswritetw/dist/img/logo_512.png"/>
 	<meta property="og:url" content="https://letswritetw.github.io/letswrite-food-check/" />
 	<meta property="og:site_name" content="Let's Write" />
 	<meta property="og:title" content="午餐吃什麼 - by August - Let's Write" />
-	<meta property="og:description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 August 開發，以 Google Excel 當資料庫，介接 Google Map Embed API，輕鬆好管理。" />
+	<meta property="og:description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 August 開發，以 Google Sheets 當資料庫，介接 Google Map Embed API，輕鬆好管理。" />
 	<meta property="og:image" content="https://letswritetw.github.io/letswrite-food-check/assets/img/bg-food.jpg" />
 	<meta itemprop="name" content="午餐吃什麼 - by August">
-	<meta itemprop="description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 August 開發，以 Google Excel 當資料庫，介接 Google Map Embed API，輕鬆好管理。">
+	<meta itemprop="description" content="午餐吃什麼？用抽獎方式來決定今天的午餐吧！由 August 開發，以 Google Sheets 當資料庫，介接 Google Map Embed API，輕鬆好管理。">
 	<meta itemprop="image" content="https://letswritetw.github.io/letswrite-food-check/assets/img/bg-food.jpg">
 
 
@@ -45,7 +45,7 @@
 		
 		<!--  主要內容  -->
 		<div class="main-block">
-			
+
 			<!--  顯示區塊  -->
 			<section class="god">
 				<h1>
@@ -81,7 +81,7 @@
 
 			<!--  地圖  -->
 			<section id="map" class="map">
-				<iframe frameborder="0" style="border:0" src="" allowfullscreen></iframe>
+				<iframe loading="lazy" frameborder="0" style="border:0" src="" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</section>
 		</div>
 	</main>
@@ -105,24 +105,26 @@
 	
 
 	<script>
-		const url = 'https://spreadsheets.google.com/feeds/list/11wLZL0bNoD7ZQwfN3Tkx41YB6IgLbv4ftsrxywA0114/1/public/values?alt=json';
+
+		// Maps Embed API、Google Sheets API 的 金鑰
+		// 可由 https://console.developers.google.com/apis 申請
+		const embedApiKey = 'AIzaSyDtu-vNL3cTLQF_Tongrtckzfs8LS4ClkM';
+
+		const uri = 'https://sheets.googleapis.com/v4/spreadsheets/11wLZL0bNoD7ZQwfN3Tkx41YB6IgLbv4ftsrxywA0114/values/lets-write?alt=json&key=' + embedApiKey;
 
 		const duration = 2000; // 拉霸效果執行多久
 
-		// Maps Embed API 的 key，可由 https://console.developers.google.com/apis 申請
-		const embedApiKey = 'AIzaSyDVSu8cjT27wDKGUaahg5qx-FXlNVqD2N8';
-
-		fetch(url)
+		fetch(uri)
 			.then(res => res.json())
 			.then(data => {
 				let vages = []; // 素
 				let meats = []; // 葷
 
 				// 分葷、素，塞入陣列
-				const d = data.feed.entry, len =  d.length;
+				const d = data.values, len =  d.length;
 				
 				for(let i = 0; i < len; i++) {
-					d[i].gsx$vage.$t === '是' ? vages.push(d[i].gsx$shops.$t) : meats.push(d[i].gsx$shops.$t);
+					d[i][1] === '是' ? vages.push(d[i][0]) : meats.push(d[i][0]);
 				}
 				
 
